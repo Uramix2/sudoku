@@ -90,70 +90,6 @@ class Generate:
                 self.sudoku[ligne][colonne] = 0
 
         return False
-
-
-
-
-
-
-        """
-        il faut vérifier que le chiffre est valide (fonction verifier_pos) dans sa colonne et sa ligne si True
-        alors il faut ajouter à la position ligne, colonne le chiffre
-        si le generate renvoie false il faut faire un backtracking avec appel récursive de la fonction et passer aux prochains chiffre possible
-        """
-
-
-       
-           
-       
-         
-   
-   
-        """
-        def list_the_possibilities(liste,x,y):
-    possibility = [1,2,3,4,5,6,7,8,9]
-    for number in range(9):
-        try:
-            possibility.remove(liste[number][y])
-        except:
-            pass
-        try:
-            possibility.remove(liste[x][number])
-        except:
-            pass
-
-
-    X,Y = (x//3)*3,(y//3)*3
-    for x in range(X,X+3):
-        for y in range(Y,Y+3):
-            try:
-                possibility.remove(liste[x][y])
-            except:
-                pass
-
-
-    return possibility
-
-
-def backtracking_fonction(sudoku):
-    for x in range(9):
-        for y in range(9):
-            if sudoku[x][y] == 0:
-                possibility = list_the_possibilities(sudoku,x,y)
-                for p in possibility:
-                    sudoku[x][y] = p
-                    backtracking_fonction(sudoku)
-                    sudoku[x][y] = 0
-                return
-    print()
-    for ligne in sudoku:
-        print(ligne)
-
-
-backtracking_fonction(sudoku)
-        """
-   
-   
    
    
     def get_carre(self,ligne,colonne):
@@ -206,30 +142,15 @@ backtracking_fonction(sudoku)
         return self.sudoku
 
 
-       
-
-
-
-
-## idée pour le solve faire en brute force et dès que colone ou ligne est complet(1 à 9) alors la mettre en vert et ne pluus y toucher  
-       
-
-
-
-
-   
-   
-
-
-   
-   
-###
+          
+### test ###
 niveau = 1
 sudoku = Generate(niveau)
 sudoku.generate()
 print(sudoku.affiche())
 sudoku.enlever_des_cases(niveau)
 print(sudoku.affiche())
+
 
 
 
